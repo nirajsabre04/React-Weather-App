@@ -1,0 +1,203 @@
+body, html, #root {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(255, 123, 0, 0.5)); /* Adjust colors as needed */
+    background-size: cover;
+    background-position: center;
+    transition: background 0.5s ease;
+}
+.mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1000; /* Ensure it stays on top of other elements */
+  }
+  
+  .dark-mode-icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: #ffffff; /* Adjust the color to match the theme */
+  }
+  
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #fff;
+    box-sizing: border-box;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.8);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 3em;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 250px;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color:  rgb(221, 133, 0);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+button:hover {
+    background-color:rgba(255, 153, 0, 0.8);
+    transform: translateY(-2px);
+}
+
+.weather-info {
+    margin-top: 20px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 1s ease-in-out;
+    max-width: 400px;
+    width: 90%;
+}
+
+.weather-info h2 {
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+.weather-info p {
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.weather-info img {
+    width: 100px;
+    height: 100px;
+}
+
+.error {
+    color: #ff4d4d;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.loading {
+    margin-top: 10px;
+    font-size: 1.2em;
+    animation: pulse 2s infinite;
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Fade-in Animation for Weather Info */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .weather-container {
+        padding: 20px;
+    }
+
+    input {
+        width: 80%;
+    }
+
+    .weather-info {
+        width: 80%;
+        padding: 15px;
+    }
+
+    .weather-info h2 {
+        font-size: 1.5em;
+    }
+
+    .weather-info p {
+        font-size: 1em;
+    }
+
+    .weather-info img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    input, .weather-info {
+        width: 100%;
+    }
+
+    .weather-info h2 {
+        font-size: 1.2em;
+    }
+
+    .weather-info p {
+        font-size: 0.9em;
+    }
+
+    .weather-info img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.9), rgba(30, 30, 30, 0.5));
+}
+
+body.light-mode {
+    background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(255, 123, 0, 0.5));
+    color: #000;
+}
+
+.weather-info.dark-mode {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+}
+
+.weather-info.light-mode {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+/* Icon styles for dark/light mode toggle */
+.toggle-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 30px; /* Adjust size as needed */
+    height: 30px; /* Adjust size as needed */
+}
+
+/* Hide loading text or any unwanted elements after searching */
+.loading, .error {
+    display: none; /* Use JavaScript to control visibility */
+}
